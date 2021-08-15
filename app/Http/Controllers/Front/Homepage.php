@@ -44,9 +44,9 @@ class Homepage extends Controller
     }
 
     public function category($slug){
-            $cat=Category::where('slug',$slug)->where('status',1)->first() ?? abort(403,'Böyle bir data bulunamadı');
+            $cat2=Category::where('slug',$slug)->where('status',1)->first() ?? abort(403,'Böyle bir data bulunamadı');
            // $data['categories']=Category::orderBy('id', 'asc')->get();//__consturcta share ettiğimiz için gerek kalmadı
-            $data['kategoridetay']=$cat;
+            $data['kategoridetay']=$cat2;
             $data['icerik']=content::where('category_id',$cat->id)->where('status',1)->paginate(1);
            
             return view('front.categorydetay',$data);
